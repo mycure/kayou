@@ -1,0 +1,1 @@
+TARGET=C SOURCE=test/a.c HEADER=test/a.h ./nuntio input/integer/ejaculation.fcd

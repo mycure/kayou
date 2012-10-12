@@ -1,0 +1,5 @@
+message teton
+{
+  int32 suce;
+  uint8 bande;
+}

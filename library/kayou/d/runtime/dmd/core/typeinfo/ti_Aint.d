@@ -1,0 +1,110 @@
+module runtime.core.typeinfo.ti_Aint;
+
+static import runtime.system.system;
+
+// int[]
+
+class TypeInfo_Ai : TypeInfo
+{
+    override string toString() { return "int[]"; }
+
+    override hash_t getHash(in void *p)
+    {	int[] s = *cast(int[]*)p;
+	auto len = s.length;
+	auto str = s.ptr;
+	hash_t hash = 0;
+
+	while (len)
+	{
+	    hash *= 9;
+	    hash += *cast(uint *)str;
+	    str++;
+	    len--;
+	}
+
+	return hash;
+    }
+
+    override int equals(in void *p1, in void *p2)
+    {
+	int[] s1 = *cast(int[]*)p1;
+	int[] s2 = *cast(int[]*)p2;
+
+	return s1.length == s2.length &&
+	  runtime.system.system.memcmp(cast(void *)s1, cast(void *)s2, s1.length * int.sizeof) == 0;
+    }
+
+    override int compare(in void *p1, in void *p2)
+    {
+	int[] s1 = *cast(int[]*)p1;
+	int[] s2 = *cast(int[]*)p2;
+	size_t len = s1.length;
+
+	if (s2.length < len)
+	    len = s2.length;
+	for (size_t u = 0; u < len; u++)
+	{
+	    int result = s1[u] - s2[u];
+	    if (result)
+		return result;
+	}
+	return cast(int)s1.length - cast(int)s2.length;
+    }
+
+    override size_t tsize()
+    {
+	return (int[]).sizeof;
+    }
+
+    override uint flags()
+    {
+	return 1;
+    }
+
+    override TypeInfo next()
+    {
+	return typeid(int);
+    }
+}
+
+// uint[]
+
+class TypeInfo_Ak : TypeInfo_Ai
+{
+    override string toString() { return "uint[]"; }
+
+    override int compare(in void *p1, in void *p2)
+    {
+	uint[] s1 = *cast(uint[]*)p1;
+	uint[] s2 = *cast(uint[]*)p2;
+	size_t len = s1.length;
+
+	if (s2.length < len)
+	    len = s2.length;
+	for (size_t u = 0; u < len; u++)
+	{
+	    int result = s1[u] - s2[u];
+	    if (result)
+		return result;
+	}
+	return cast(int)s1.length - cast(int)s2.length;
+    }
+
+    override TypeInfo next()
+    {
+	return typeid(uint);
+    }
+}
+
+// dchar[]
+
+class TypeInfo_Aw : TypeInfo_Ak
+{
+    override string toString() { return "dchar[]"; }
+
+    override TypeInfo next()
+    {
+	return typeid(dchar);
+    }
+}
+

@@ -1,0 +1,123 @@
+10
+
+dir
+35
+svn+ssh://subversion@repositories.passeism.org/kayou/_old_/kaneton/library/uclibc/libc
+svn+ssh://subversion@repositories.passeism.org/kayou
+
+
+
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3dbe5962-0618-0410-a288-292afc9815ca
+
+stdlib
+dir
+
+pwd_grp
+dir
+
+stdio
+dir
+
+termios
+dir
+
+Makefile.in
+file
+
+
+
+
+2012-10-12T08:25:29.000000Z
+277cfcd58a5391fe012ba72d6c913d1a
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2892
+
+string
+dir
+
+unistd
+dir
+
+sysdeps
+dir
+
+misc
+dir
+
+signal
+dir
+
+Makefile
+file
+
+
+
+
+2012-10-12T08:25:29.000000Z
+c27b808cd445fc648446c6fc11fbd2a7
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+291
+

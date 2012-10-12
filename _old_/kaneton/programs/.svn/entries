@@ -1,0 +1,43 @@
+10
+
+dir
+35
+svn+ssh://subversion@repositories.passeism.org/kayou/_old_/kaneton/programs
+svn+ssh://subversion@repositories.passeism.org/kayou
+
+
+
+2009-06-29T04:00:55.407803Z
+34
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3dbe5962-0618-0410-a288-292afc9815ca
+
+test_ide
+dir
+
+mjpeg
+dir
+
+test_threads
+dir
+
+test_echo
+dir
+
+test_inet
+dir
+

@@ -1,0 +1,129 @@
+boolean
+integer [size]: signed
+natural [size]: unsigned
+character
+string
+real [size]
+raw [size]
+struct [name]
+alias [from] [to]
+
+--
+
+alias natural<32> size_t;
+
+message teton
+{
+  bool b;
+  char c;
+  int64 i; // signed
+  nat128 n; // unsigned
+  str s;
+  real r;
+  raw<256> _;
+
+  integer<32> array[i < 128][n < 256];
+
+  section suce
+  {
+    integer<32> i;
+  }
+}
+
+=> genere teton_pack() et teton_unpack()
+
+-----
+
+integer 32 64 128
+double   64
+
+
+message-content:
+    block-list
+
+block-list:
+    block-list block-statement
+    block-statement
+
+block-statement:
+    message-statement
+    option-statement
+    raw-block
+
+message-statement:
+    "message" identifiant "{"  declaration-list "}"
+
+declaration-list:
+    declaration-list declaration
+    declaration
+
+declaration:
+    simple-declaration
+    struct-declaration
+
+simple-delclaration:
+    type-storage size-qualifier identifiant
+
+type-storage:
+	type-integer | type-double | type-string | type-raw
+
+type-integer:
+    	[ "unsigned" | "signed" ] "integer" [ "(" "32" | "64" | "128" ")" ]
+
+type-double:
+	"double"
+
+type-string:
+	"string"
+
+type-raw:
+	"raw"
+
+size-qualifier:
+    size-qualifier size-qualifier-statement
+    size-qualifier-statement
+
+size-qualifier-statement:
+    "<" [ identifiant ":"] constant">"
+
+struct-declaration:
+    "struct" size-qualifier identifiant "{" declaration-list "}"
+
+
+option-statement:
+
+raw-block:
+
+
+Add comments in msg files
+Output file : -f specify the output file or nuntio.hm is the default one
+How can raw and str be translate? char or u_char?
+
+
+
+Comments nuntio, parser, tokenizer ...
+
+exception handler at the build entry, keep the previous for general failure
+Like that, when a file fail with something like parse error, we can continue
+with the next file.
+
+error => stderr
+color message + option (y or n for color)
+options
+  arch=none
+  std=none => kxdr
+  output=none rename with .msg-> .hm
+         stdout => display on stdout
+
+
+
+
+build the encoding module on the base of std.arch
+std is the main class, and the other standard are daughter of her.
+
+---
+
+%{ .... }%
+Recopie le contenu dans le fichier cible sans tenir compte de la signification
+et sans passer au preprocessing.
+Ces deux marqueurs sont necessairement en debut de ligne.

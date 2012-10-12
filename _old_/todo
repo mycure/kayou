@@ -1,0 +1,54 @@
+--
+ les process qui veulent que l'on communique avec eux devraient effectuer
+ une action pour register leur nodeid aupres d'un groupe de nommage.
+
+ ensuite quand le process est migrer la communication va chier.
+
+ soit lors de la migration on met a jour le service de nommage, soit lors
+ de la communication si on ne trouve pas, on broadcast pour trouver la
+ nouvelle localisation.
+
+ regarder comment faire FLIP
+
+--
+ vraiment reflechir a un systeme de nommage. genre open(path) va en realite
+ appeler vfs. lui il sait qu'il gere des FS donc il va demander au service
+ de nom de chercher l'objet fs::path. l objet peut se trouver n importe
+ ou peut etre sur une autre machine dans un fs distribue bref.
+
+ et donc ensuite vfs recupere le chemin vers cet objet et fait une
+ ouverture en envoyant un message au service/groupe qui gere cet objet.
+
+ de plus grace a ce systeme il sera inutile de fournir une lib par
+ service pour que le caller sache comment utiliser le service.
+
+ la le caller demande juste au name server: "je cherche un service
+ qui s'appelle surement comme ca, qui a telle version et qui fournit
+ ca".
+
+ de plus preciser que les capabilities sont generees par les servers
+ de par leurs natures specifiques a chaque serveur mais que l'on
+ pourrait egalement fournir une lib de gestion de capability par
+ serveur. mais cette solution est trop inelegante pour etre utilisee
+ dans kaneton. neanmoins elle fournirait de meilleur performance
+ mais la frequence de generation de capability n'en vaut pas
+ la chandelle.
+
+--
+ systeme de nommage style: machine::service::subpart::object
+
+ exemples:
+
+    mybox::core::segment::1  // segment 1 du core
+    yourbox::mod::*          // tous les modules de mod
+
+ on pourrait imaginer un systeme de regexp :)
+
+ ensuite si une tache comme une tache root demande une capability sur
+ son espace d'adressage, c'est mod qui demandera a core la cap de l'as
+ et qui la retournera.
+
+ on pourrait imaginer encore plus loin
+
+    mybox::core::task:: taskid == 1
+    mybox::core::segment:: size >= 100 && size <= 200

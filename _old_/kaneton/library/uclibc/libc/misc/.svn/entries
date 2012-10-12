@@ -1,0 +1,168 @@
+10
+
+dir
+35
+svn+ssh://subversion@repositories.passeism.org/kayou/_old_/kaneton/library/uclibc/libc/misc
+svn+ssh://subversion@repositories.passeism.org/kayou
+
+
+
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3dbe5962-0618-0410-a288-292afc9815ca
+
+file
+dir
+
+fnmatch
+dir
+
+syslog
+dir
+
+Makefile.in
+file
+
+
+
+
+2012-10-12T08:25:29.000000Z
+978ea580a90d66d7b0b0ebfbb6239912
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1477
+
+glob
+dir
+
+ctype
+dir
+
+utmp
+dir
+
+dirent
+dir
+
+pthread
+dir
+
+ttyent
+dir
+
+wordexp
+dir
+
+gnu
+dir
+
+error
+dir
+
+time
+dir
+
+locale
+dir
+
+internals
+dir
+
+sysvipc
+dir
+
+ftw
+dir
+
+assert
+dir
+
+statfs
+dir
+
+wchar
+dir
+
+mntent
+dir
+
+search
+dir
+
+regex
+dir
+
+wctype
+dir
+
+Makefile
+file
+
+
+
+
+2012-10-12T08:25:29.000000Z
+52efa1fcb73e0af21caf6321f6cbea7c
+2009-06-29T04:00:06.133424Z
+33
+julien.quintard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+297
+
